@@ -4,6 +4,8 @@ brevity.  Much more detail can be found in the git revision history:
 
     https://github.com/jemalloc/jemalloc
 
+* 5.2.1-1 (November 20, 2019)
+
 * 5.2.1 (August 5, 2019)
 
   This release is primarily about Windows.  A critical virtual memory leak is
