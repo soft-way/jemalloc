@@ -1,0 +1,5 @@
+Source: jemalloc
+Version: 5.2.1-1
+Homepage: https://github.com/soft-way/jemalloc
+Description: jemalloc is a general purpose malloc(3) implementation that emphasizes fragmentation avoidance and scalable concurrency support.
+Build-Depends:
