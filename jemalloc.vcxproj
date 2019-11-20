@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1870CDED-7870-3369-BEF1-2C69246D1BA5}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>jemalloc</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\ZZZ\jemalloc\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">jemalloc.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">jemalloc</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\ZZZ\jemalloc\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">jemalloc.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">jemalloc</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\ZZZ\jemalloc\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">jemalloc.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">jemalloc</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\ZZZ\jemalloc\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">jemalloc.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">jemalloc</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\ZZZ\jemalloc\include;D:\ZZZ\jemalloc\include\msvc_compat;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /d2Zi+ /FS</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4267;4244;4146;4334;4090</DisableSpecificWarnings>
+      <ErrorReporting>Queue</ErrorReporting>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild>true</MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <UseFullPaths>true</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;JEMALLOC_EXPORT=;DLLEXPORT;_MBCS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>D:\ZZZ\jemalloc\Debug\jemalloc.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;JEMALLOC_EXPORT=;DLLEXPORT;_MBCS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\ZZZ\jemalloc\include;D:\ZZZ\jemalloc\include\msvc_compat;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\ZZZ\jemalloc\include;D:\ZZZ\jemalloc\include\msvc_compat;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\ZZZ\jemalloc\include;D:\ZZZ\jemalloc\include\msvc_compat;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /d2Zi+ /FS /Oxt</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4267;4244;4146;4334;4090</DisableSpecificWarnings>
+      <ErrorReporting>Queue</ErrorReporting>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MinimalRebuild>false</MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <StructMemberAlignment>8Bytes</StructMemberAlignment>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <UseFullPaths>true</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;JEMALLOC_EXPORT=;DLLEXPORT;_MBCS;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>D:\ZZZ\jemalloc\Release\jemalloc.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;JEMALLOC_EXPORT=;DLLEXPORT;_MBCS;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\ZZZ\jemalloc\include;D:\ZZZ\jemalloc\include\msvc_compat;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\ZZZ\jemalloc\include;D:\ZZZ\jemalloc\include\msvc_compat;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\ZZZ\jemalloc\include;D:\ZZZ\jemalloc\include\msvc_compat;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /d2Zi+ /FS</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4267;4244;4146;4334;4090</DisableSpecificWarnings>
+      <ErrorReporting>Queue</ErrorReporting>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <UseFullPaths>true</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;JEMALLOC_EXPORT=;DLLEXPORT;_MBCS;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>D:\ZZZ\jemalloc\MinSizeRel\jemalloc.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;JEMALLOC_EXPORT=;DLLEXPORT;_MBCS;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\ZZZ\jemalloc\include;D:\ZZZ\jemalloc\include\msvc_compat;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\ZZZ\jemalloc\include;D:\ZZZ\jemalloc\include\msvc_compat;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\ZZZ\jemalloc\include;D:\ZZZ\jemalloc\include\msvc_compat;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /d2Zi+ /FS</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4267;4244;4146;4334;4090</DisableSpecificWarnings>
+      <ErrorReporting>Queue</ErrorReporting>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <UseFullPaths>true</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;JEMALLOC_EXPORT=;DLLEXPORT;_MBCS;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>D:\ZZZ\jemalloc\RelWithDebInfo\jemalloc.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;JEMALLOC_EXPORT=;DLLEXPORT;_MBCS;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\ZZZ\jemalloc\include;D:\ZZZ\jemalloc\include\msvc_compat;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\ZZZ\jemalloc\include;D:\ZZZ\jemalloc\include\msvc_compat;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\ZZZ\jemalloc\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/ZZZ/jemalloc/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Apps\CMake\bin\cmake.exe -SD:/ZZZ/jemalloc -BD:/ZZZ/jemalloc --check-stamp-file D:/ZZZ/jemalloc/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Apps\CMake\share\cmake-3.15\Modules\CMakeCCompiler.cmake.in;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeCCompilerABI.c;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeCInformation.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeCommonLanguageInclude.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeCompilerIdDetection.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeConfigurableFile.in;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeDetermineCCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeDetermineCompileFeatures.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeDetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeDetermineCompilerABI.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeDetermineCompilerId.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeDetermineRCCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeDetermineSystem.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeFindBinUtils.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeGenericSystem.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeInitializeConfigs.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeLanguageInformation.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeParseImplicitIncludeInfo.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeParseImplicitLinkInfo.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeRCCompiler.cmake.in;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeRCInformation.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeSystem.cmake.in;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeSystemSpecificInformation.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeSystemSpecificInitialize.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeTestCCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeTestCompilerCommon.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeTestRCCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CTest.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CTestTargets.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CTestUseLaunchers.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CheckCSourceCompiles.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CheckIncludeFile.c.in;D:\Apps\CMake\share\cmake-3.15\Modules\CheckIncludeFile.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CheckIncludeFileCXX.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CheckIncludeFiles.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CheckTypeSize.c.in;D:\Apps\CMake\share\cmake-3.15\Modules\CheckTypeSize.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\ADSP-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\ARMCC-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\ARMClang-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\AppleClang-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Borland-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Clang-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Cray-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\GHS-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\GNU-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\HP-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\IAR-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Intel-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\MSVC-C.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\MSVC-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\PGI-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\PathScale-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\SCO-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\TI-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Watcom-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\XL-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\zOS-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CompilerId\VS-10.vcxproj.in;D:\Apps\CMake\share\cmake-3.15\Modules\DartConfiguration.tcl.in;D:\Apps\CMake\share\cmake-3.15\Modules\FindGit.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\FindPackageHandleStandardArgs.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\FindPackageMessage.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Internal\FeatureTesting.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Platform\Windows-MSVC-C.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Platform\Windows-MSVC.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Platform\Windows.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Platform\WindowsPaths.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\TestBigEndian.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\TestEndianess.c.in;D:\ZZZ\jemalloc\CMakeFiles\3.15.5\CMakeCCompiler.cmake;D:\ZZZ\jemalloc\CMakeFiles\3.15.5\CMakeRCCompiler.cmake;D:\ZZZ\jemalloc\CMakeFiles\3.15.5\CMakeSystem.cmake;D:\ZZZ\jemalloc\CMakeFiles\CheckIncludeFiles\HAVE_INTTYPES_H.c;D:\ZZZ\jemalloc\CMakeFiles\CheckIncludeFiles\HAVE_MALLOC_H.c;D:\ZZZ\jemalloc\CMakeFiles\CheckIncludeFiles\HAVE_SYSTIME_H.c;D:\ZZZ\jemalloc\CMakeFiles\CheckIncludeFiles\JEMALLOC_C11ATOMICS.c;D:\ZZZ\jemalloc\CMakeFiles\CheckIncludeFiles\JEMALLOC_HAS_ALLOCA_H.c;D:\ZZZ\jemalloc\CMakeFiles\CheckTypeSize\CMAKE_SIZEOF_UNSIGNED_SHORT.c;D:\ZZZ\jemalloc\CMakeFiles\CheckTypeSize\SIZEOF_INT.c;D:\ZZZ\jemalloc\CMakeFiles\CheckTypeSize\SIZEOF_INTMAX_T.c;D:\ZZZ\jemalloc\CMakeFiles\CheckTypeSize\SIZEOF_LONG.c;D:\ZZZ\jemalloc\CMakeFiles\CheckTypeSize\SIZEOF_LONG_LONG.c;D:\ZZZ\jemalloc\CMakeFiles\CheckTypeSize\SIZEOF_VOID_P.c;D:\ZZZ\jemalloc\GetPageSize\getpagesize.c;D:\ZZZ\jemalloc\GetSystemAddrBits.cmake;D:\ZZZ\jemalloc\GetSystemAddrBits\getsystemaddrbits.c;D:\ZZZ\jemalloc\Utilities.cmake;D:\ZZZ\jemalloc\test\include\test\jemalloc_test.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\ZZZ\jemalloc\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/ZZZ/jemalloc/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Apps\CMake\bin\cmake.exe -SD:/ZZZ/jemalloc -BD:/ZZZ/jemalloc --check-stamp-file D:/ZZZ/jemalloc/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Apps\CMake\share\cmake-3.15\Modules\CMakeCCompiler.cmake.in;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeCCompilerABI.c;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeCInformation.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeCommonLanguageInclude.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeCompilerIdDetection.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeConfigurableFile.in;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeDetermineCCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeDetermineCompileFeatures.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeDetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeDetermineCompilerABI.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeDetermineCompilerId.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeDetermineRCCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeDetermineSystem.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeFindBinUtils.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeGenericSystem.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeInitializeConfigs.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeLanguageInformation.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeParseImplicitIncludeInfo.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeParseImplicitLinkInfo.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeRCCompiler.cmake.in;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeRCInformation.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeSystem.cmake.in;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeSystemSpecificInformation.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeSystemSpecificInitialize.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeTestCCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeTestCompilerCommon.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeTestRCCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CTest.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CTestTargets.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CTestUseLaunchers.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CheckCSourceCompiles.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CheckIncludeFile.c.in;D:\Apps\CMake\share\cmake-3.15\Modules\CheckIncludeFile.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CheckIncludeFileCXX.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CheckIncludeFiles.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CheckTypeSize.c.in;D:\Apps\CMake\share\cmake-3.15\Modules\CheckTypeSize.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\ADSP-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\ARMCC-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\ARMClang-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\AppleClang-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Borland-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Clang-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Cray-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\GHS-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\GNU-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\HP-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\IAR-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Intel-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\MSVC-C.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\MSVC-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\PGI-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\PathScale-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\SCO-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\TI-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Watcom-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\XL-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\zOS-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CompilerId\VS-10.vcxproj.in;D:\Apps\CMake\share\cmake-3.15\Modules\DartConfiguration.tcl.in;D:\Apps\CMake\share\cmake-3.15\Modules\FindGit.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\FindPackageHandleStandardArgs.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\FindPackageMessage.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Internal\FeatureTesting.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Platform\Windows-MSVC-C.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Platform\Windows-MSVC.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Platform\Windows.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Platform\WindowsPaths.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\TestBigEndian.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\TestEndianess.c.in;D:\ZZZ\jemalloc\CMakeFiles\3.15.5\CMakeCCompiler.cmake;D:\ZZZ\jemalloc\CMakeFiles\3.15.5\CMakeRCCompiler.cmake;D:\ZZZ\jemalloc\CMakeFiles\3.15.5\CMakeSystem.cmake;D:\ZZZ\jemalloc\CMakeFiles\CheckIncludeFiles\HAVE_INTTYPES_H.c;D:\ZZZ\jemalloc\CMakeFiles\CheckIncludeFiles\HAVE_MALLOC_H.c;D:\ZZZ\jemalloc\CMakeFiles\CheckIncludeFiles\HAVE_SYSTIME_H.c;D:\ZZZ\jemalloc\CMakeFiles\CheckIncludeFiles\JEMALLOC_C11ATOMICS.c;D:\ZZZ\jemalloc\CMakeFiles\CheckIncludeFiles\JEMALLOC_HAS_ALLOCA_H.c;D:\ZZZ\jemalloc\CMakeFiles\CheckTypeSize\CMAKE_SIZEOF_UNSIGNED_SHORT.c;D:\ZZZ\jemalloc\CMakeFiles\CheckTypeSize\SIZEOF_INT.c;D:\ZZZ\jemalloc\CMakeFiles\CheckTypeSize\SIZEOF_INTMAX_T.c;D:\ZZZ\jemalloc\CMakeFiles\CheckTypeSize\SIZEOF_LONG.c;D:\ZZZ\jemalloc\CMakeFiles\CheckTypeSize\SIZEOF_LONG_LONG.c;D:\ZZZ\jemalloc\CMakeFiles\CheckTypeSize\SIZEOF_VOID_P.c;D:\ZZZ\jemalloc\GetPageSize\getpagesize.c;D:\ZZZ\jemalloc\GetSystemAddrBits.cmake;D:\ZZZ\jemalloc\GetSystemAddrBits\getsystemaddrbits.c;D:\ZZZ\jemalloc\Utilities.cmake;D:\ZZZ\jemalloc\test\include\test\jemalloc_test.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\ZZZ\jemalloc\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/ZZZ/jemalloc/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Apps\CMake\bin\cmake.exe -SD:/ZZZ/jemalloc -BD:/ZZZ/jemalloc --check-stamp-file D:/ZZZ/jemalloc/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Apps\CMake\share\cmake-3.15\Modules\CMakeCCompiler.cmake.in;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeCCompilerABI.c;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeCInformation.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeCommonLanguageInclude.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeCompilerIdDetection.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeConfigurableFile.in;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeDetermineCCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeDetermineCompileFeatures.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeDetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeDetermineCompilerABI.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeDetermineCompilerId.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeDetermineRCCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeDetermineSystem.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeFindBinUtils.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeGenericSystem.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeInitializeConfigs.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeLanguageInformation.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeParseImplicitIncludeInfo.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeParseImplicitLinkInfo.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeRCCompiler.cmake.in;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeRCInformation.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeSystem.cmake.in;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeSystemSpecificInformation.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeSystemSpecificInitialize.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeTestCCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeTestCompilerCommon.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeTestRCCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CTest.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CTestTargets.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CTestUseLaunchers.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CheckCSourceCompiles.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CheckIncludeFile.c.in;D:\Apps\CMake\share\cmake-3.15\Modules\CheckIncludeFile.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CheckIncludeFileCXX.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CheckIncludeFiles.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CheckTypeSize.c.in;D:\Apps\CMake\share\cmake-3.15\Modules\CheckTypeSize.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\ADSP-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\ARMCC-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\ARMClang-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\AppleClang-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Borland-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Clang-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Cray-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\GHS-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\GNU-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\HP-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\IAR-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Intel-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\MSVC-C.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\MSVC-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\PGI-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\PathScale-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\SCO-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\TI-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Watcom-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\XL-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\zOS-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CompilerId\VS-10.vcxproj.in;D:\Apps\CMake\share\cmake-3.15\Modules\DartConfiguration.tcl.in;D:\Apps\CMake\share\cmake-3.15\Modules\FindGit.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\FindPackageHandleStandardArgs.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\FindPackageMessage.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Internal\FeatureTesting.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Platform\Windows-MSVC-C.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Platform\Windows-MSVC.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Platform\Windows.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Platform\WindowsPaths.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\TestBigEndian.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\TestEndianess.c.in;D:\ZZZ\jemalloc\CMakeFiles\3.15.5\CMakeCCompiler.cmake;D:\ZZZ\jemalloc\CMakeFiles\3.15.5\CMakeRCCompiler.cmake;D:\ZZZ\jemalloc\CMakeFiles\3.15.5\CMakeSystem.cmake;D:\ZZZ\jemalloc\CMakeFiles\CheckIncludeFiles\HAVE_INTTYPES_H.c;D:\ZZZ\jemalloc\CMakeFiles\CheckIncludeFiles\HAVE_MALLOC_H.c;D:\ZZZ\jemalloc\CMakeFiles\CheckIncludeFiles\HAVE_SYSTIME_H.c;D:\ZZZ\jemalloc\CMakeFiles\CheckIncludeFiles\JEMALLOC_C11ATOMICS.c;D:\ZZZ\jemalloc\CMakeFiles\CheckIncludeFiles\JEMALLOC_HAS_ALLOCA_H.c;D:\ZZZ\jemalloc\CMakeFiles\CheckTypeSize\CMAKE_SIZEOF_UNSIGNED_SHORT.c;D:\ZZZ\jemalloc\CMakeFiles\CheckTypeSize\SIZEOF_INT.c;D:\ZZZ\jemalloc\CMakeFiles\CheckTypeSize\SIZEOF_INTMAX_T.c;D:\ZZZ\jemalloc\CMakeFiles\CheckTypeSize\SIZEOF_LONG.c;D:\ZZZ\jemalloc\CMakeFiles\CheckTypeSize\SIZEOF_LONG_LONG.c;D:\ZZZ\jemalloc\CMakeFiles\CheckTypeSize\SIZEOF_VOID_P.c;D:\ZZZ\jemalloc\GetPageSize\getpagesize.c;D:\ZZZ\jemalloc\GetSystemAddrBits.cmake;D:\ZZZ\jemalloc\GetSystemAddrBits\getsystemaddrbits.c;D:\ZZZ\jemalloc\Utilities.cmake;D:\ZZZ\jemalloc\test\include\test\jemalloc_test.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\ZZZ\jemalloc\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/ZZZ/jemalloc/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Apps\CMake\bin\cmake.exe -SD:/ZZZ/jemalloc -BD:/ZZZ/jemalloc --check-stamp-file D:/ZZZ/jemalloc/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Apps\CMake\share\cmake-3.15\Modules\CMakeCCompiler.cmake.in;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeCCompilerABI.c;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeCInformation.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeCommonLanguageInclude.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeCompilerIdDetection.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeConfigurableFile.in;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeDetermineCCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeDetermineCompileFeatures.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeDetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeDetermineCompilerABI.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeDetermineCompilerId.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeDetermineRCCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeDetermineSystem.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeFindBinUtils.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeGenericSystem.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeInitializeConfigs.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeLanguageInformation.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeParseImplicitIncludeInfo.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeParseImplicitLinkInfo.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeRCCompiler.cmake.in;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeRCInformation.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeSystem.cmake.in;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeSystemSpecificInformation.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeSystemSpecificInitialize.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeTestCCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeTestCompilerCommon.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CMakeTestRCCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CTest.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CTestTargets.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CTestUseLaunchers.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CheckCSourceCompiles.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CheckIncludeFile.c.in;D:\Apps\CMake\share\cmake-3.15\Modules\CheckIncludeFile.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CheckIncludeFileCXX.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CheckIncludeFiles.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CheckTypeSize.c.in;D:\Apps\CMake\share\cmake-3.15\Modules\CheckTypeSize.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\ADSP-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\ARMCC-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\ARMClang-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\AppleClang-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Borland-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Clang-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Cray-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\GHS-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\GNU-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\HP-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\IAR-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Intel-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\MSVC-C.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\MSVC-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\PGI-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\PathScale-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\SCO-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\TI-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\Watcom-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\XL-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Compiler\zOS-C-DetermineCompiler.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\CompilerId\VS-10.vcxproj.in;D:\Apps\CMake\share\cmake-3.15\Modules\DartConfiguration.tcl.in;D:\Apps\CMake\share\cmake-3.15\Modules\FindGit.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\FindPackageHandleStandardArgs.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\FindPackageMessage.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Internal\FeatureTesting.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Platform\Windows-MSVC-C.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Platform\Windows-MSVC.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Platform\Windows.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\Platform\WindowsPaths.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\TestBigEndian.cmake;D:\Apps\CMake\share\cmake-3.15\Modules\TestEndianess.c.in;D:\ZZZ\jemalloc\CMakeFiles\3.15.5\CMakeCCompiler.cmake;D:\ZZZ\jemalloc\CMakeFiles\3.15.5\CMakeRCCompiler.cmake;D:\ZZZ\jemalloc\CMakeFiles\3.15.5\CMakeSystem.cmake;D:\ZZZ\jemalloc\CMakeFiles\CheckIncludeFiles\HAVE_INTTYPES_H.c;D:\ZZZ\jemalloc\CMakeFiles\CheckIncludeFiles\HAVE_MALLOC_H.c;D:\ZZZ\jemalloc\CMakeFiles\CheckIncludeFiles\HAVE_SYSTIME_H.c;D:\ZZZ\jemalloc\CMakeFiles\CheckIncludeFiles\JEMALLOC_C11ATOMICS.c;D:\ZZZ\jemalloc\CMakeFiles\CheckIncludeFiles\JEMALLOC_HAS_ALLOCA_H.c;D:\ZZZ\jemalloc\CMakeFiles\CheckTypeSize\CMAKE_SIZEOF_UNSIGNED_SHORT.c;D:\ZZZ\jemalloc\CMakeFiles\CheckTypeSize\SIZEOF_INT.c;D:\ZZZ\jemalloc\CMakeFiles\CheckTypeSize\SIZEOF_INTMAX_T.c;D:\ZZZ\jemalloc\CMakeFiles\CheckTypeSize\SIZEOF_LONG.c;D:\ZZZ\jemalloc\CMakeFiles\CheckTypeSize\SIZEOF_LONG_LONG.c;D:\ZZZ\jemalloc\CMakeFiles\CheckTypeSize\SIZEOF_VOID_P.c;D:\ZZZ\jemalloc\GetPageSize\getpagesize.c;D:\ZZZ\jemalloc\GetSystemAddrBits.cmake;D:\ZZZ\jemalloc\GetSystemAddrBits\getsystemaddrbits.c;D:\ZZZ\jemalloc\Utilities.cmake;D:\ZZZ\jemalloc\test\include\test\jemalloc_test.h.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\ZZZ\jemalloc\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="D:\ZZZ\jemalloc\src\arena.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\background_thread.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\base.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\bin.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\bin_info.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\bitmap.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\ckh.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\ctl.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\div.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\eset.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\extent.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\extent_dss.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\extent_mmap.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\hash.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\hook.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\jemalloc.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\large.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\log.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\malloc_io.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\mutex.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\mutex_pool.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\nstime.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\pages.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\prng.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\prof.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\prof_data.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\prof_log.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\rtree.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\safety_check.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\sc.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\stats.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\sz.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\tcache.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\test_hooks.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\thread_event.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\ticker.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\tsd.c" />
+    <ClCompile Include="D:\ZZZ\jemalloc\src\witness.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\ZZZ\jemalloc\ZERO_CHECK.vcxproj">
+      <Project>{7A4BB974-3268-3CB8-A7C0-A9BC507F1985}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
