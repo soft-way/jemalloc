@@ -713,6 +713,8 @@ if (GIT_FOUND AND EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/.git")
       set(jemalloc_version_gid ${jemalloc_version_gid} PARENT_SCOPE)
       message(STATUS "jemalloc_version_gid: ${jemalloc_version_gid}")
     endif()
+else()
+    message(STATUS "Not found git info for project ${PACKAGE_NAME}")
 endif()
 
 endfunction (GetAndParseVersion)

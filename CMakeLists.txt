@@ -194,7 +194,7 @@ set (jemalloc_version_bugfix 0)
 set (jemalloc_version_nrev 0)
 set (jemalloc_version_gid "0")
 
-find_package(Git)
+find_package(git)
 GetAndParseVersion()
 
 # We do not support exec_prefix until we find it is necessary

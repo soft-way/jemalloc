@@ -117,6 +117,8 @@ cmake_install.cmake
 conftest.exe
 include/jemalloc/internal/private_unnamespace.h
 include/jemalloc/internal/size_classes.h
+jemalloc.vcxproj
+jemalloc.vcxproj.filters
 jemalloc.dir/
 jemalloc.sln
 jemalloc_jet.dir/
