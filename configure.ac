@@ -583,7 +583,7 @@ if test ! -e "${objroot}VERSION" ; then
   if test ! -e "${srcroot}VERSION" ; then
     AC_MSG_RESULT(
       [Missing VERSION file, and unable to generate it; creating bogus VERSION])
-    echo "0.0.0-0-g0000000000000000000000000000000000000000" > "${objroot}VERSION"
+    echo "0.0.0-0-g000000missing_version_try_git_fetch_tags" > "${objroot}VERSION"
   else
     cp ${srcroot}VERSION ${objroot}VERSION
   fi
@@ -864,6 +864,26 @@ JE_COMPILABLE([format(printf, ...) attribute], [#include <stdlib.h>],
 JE_CFLAGS_RESTORE()
 if test "x${je_cv_format_arg}" = "xyes" ; then
   AC_DEFINE([JEMALLOC_HAVE_ATTR_FORMAT_ARG], [ ])
+fi
+
+dnl Check for fallthrough attribute support.
+JE_CFLAGS_SAVE()
+JE_CFLAGS_ADD([-Wimplicit-fallthrough])
+JE_COMPILABLE([fallthrough attribute],
+              [#if !__has_attribute(fallthrough)
+               #error "foo"
+               #endif],
+              [int x = 0;
+               switch (x) {
+               case 0: __attribute__((__fallthrough__));
+               case 1: return 1;
+               }],
+              [je_cv_fallthrough])
+JE_CFLAGS_RESTORE()
+if test "x${je_cv_fallthrough}" = "xyes" ; then
+  AC_DEFINE([JEMALLOC_HAVE_ATTR_FALLTHROUGH], [ ])
+  JE_CFLAGS_ADD([-Wimplicit-fallthrough])
+  JE_CXXFLAGS_ADD([-Wimplicit-fallthrough])
 fi
 
 dnl Support optional additions to rpath.

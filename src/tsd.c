@@ -230,8 +230,11 @@ tsd_data_init(tsd_t *tsd) {
 	 * cost of test repeatability.  For debug builds, instead use a
 	 * deterministic seed.
 	 */
-	*tsd_offset_statep_get(tsd) = config_debug ? 0 :
+	*tsd_prng_statep_get(tsd) = config_debug ? 0 :
 	    (uint64_t)(uintptr_t)tsd;
+
+	/* event_init may use the prng state above. */
+	tsd_thread_event_init(tsd);
 
 	return tsd_tcache_enabled_data_init(tsd);
 }
@@ -387,7 +390,7 @@ tsd_cleanup(void *arg) {
 		 * is still called for testing and completeness.
 		 */
 		assert_tsd_data_cleanup_done(tsd);
-		/* Fall through. */
+		JEMALLOC_FALLTHROUGH;
 	case tsd_state_nominal:
 	case tsd_state_nominal_slow:
 		tsd_do_data_cleanup(tsd);

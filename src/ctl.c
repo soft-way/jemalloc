@@ -112,6 +112,7 @@ CTL_PROTO(opt_prof_gdump)
 CTL_PROTO(opt_prof_final)
 CTL_PROTO(opt_prof_leak)
 CTL_PROTO(opt_prof_accum)
+CTL_PROTO(opt_zero_realloc)
 CTL_PROTO(tcache_create)
 CTL_PROTO(tcache_flush)
 CTL_PROTO(tcache_destroy)
@@ -148,6 +149,7 @@ CTL_PROTO(prof_thread_active_init)
 CTL_PROTO(prof_active)
 CTL_PROTO(prof_dump)
 CTL_PROTO(prof_gdump)
+CTL_PROTO(prof_dump_prefix)
 CTL_PROTO(prof_reset)
 CTL_PROTO(prof_interval)
 CTL_PROTO(lg_prof_sample)
@@ -222,6 +224,7 @@ CTL_PROTO(stats_metadata_thp)
 CTL_PROTO(stats_resident)
 CTL_PROTO(stats_mapped)
 CTL_PROTO(stats_retained)
+CTL_PROTO(stats_zero_reallocs)
 CTL_PROTO(experimental_hooks_install)
 CTL_PROTO(experimental_hooks_remove)
 CTL_PROTO(experimental_utilization_query)
@@ -338,7 +341,8 @@ static const ctl_named_node_t opt_node[] = {
 	{NAME("prof_gdump"),	CTL(opt_prof_gdump)},
 	{NAME("prof_final"),	CTL(opt_prof_final)},
 	{NAME("prof_leak"),	CTL(opt_prof_leak)},
-	{NAME("prof_accum"),	CTL(opt_prof_accum)}
+	{NAME("prof_accum"),	CTL(opt_prof_accum)},
+	{NAME("zero_realloc"),	CTL(opt_zero_realloc)}
 };
 
 static const ctl_named_node_t	tcache_node[] = {
@@ -413,6 +417,7 @@ static const ctl_named_node_t	prof_node[] = {
 	{NAME("active"),	CTL(prof_active)},
 	{NAME("dump"),		CTL(prof_dump)},
 	{NAME("gdump"),		CTL(prof_gdump)},
+	{NAME("dump_prefix"),	CTL(prof_dump_prefix)},
 	{NAME("reset"),		CTL(prof_reset)},
 	{NAME("interval"),	CTL(prof_interval)},
 	{NAME("lg_sample"),	CTL(lg_prof_sample)},
@@ -589,7 +594,8 @@ static const ctl_named_node_t stats_node[] = {
 	{NAME("background_thread"),
 	 CHILD(named, stats_background_thread)},
 	{NAME("mutexes"),	CHILD(named, stats_mutexes)},
-	{NAME("arenas"),	CHILD(indexed, stats_arenas)}
+	{NAME("arenas"),	CHILD(indexed, stats_arenas)},
+	{NAME("zero_reallocs"),	CTL(stats_zero_reallocs)},
 };
 
 static const ctl_named_node_t experimental_hooks_node[] = {
@@ -915,6 +921,8 @@ MUTEX_PROF_ARENA_MUTEXES
 		    &astats->astats.ndalloc_large);
 		ctl_accum_arena_stats_u64(&sdstats->astats.nrequests_large,
 		    &astats->astats.nrequests_large);
+		ctl_accum_arena_stats_u64(&sdstats->astats.nflushes_large,
+		    &astats->astats.nflushes_large);
 		accum_atomic_zu(&sdstats->astats.abandoned_vm,
 		    &astats->astats.abandoned_vm);
 
@@ -1038,6 +1046,9 @@ ctl_background_thread_stats_read(tsdn_t *tsdn) {
 		memset(stats, 0, sizeof(background_thread_stats_t));
 		nstime_init(&stats->run_interval, 0);
 	}
+	malloc_mutex_prof_copy(
+	    &ctl_stats->mutex_prof_data[global_prof_mutex_max_per_bg_thd],
+	    &stats->max_counter_per_bg_thd);
 }
 
 static void
@@ -1093,8 +1104,12 @@ ctl_refresh(tsdn_t *tsdn) {
     malloc_mutex_unlock(tsdn, &mtx);
 
 		if (config_prof && opt_prof) {
-			READ_GLOBAL_MUTEX_PROF_DATA(global_prof_mutex_prof,
-			    bt2gctx_mtx);
+			READ_GLOBAL_MUTEX_PROF_DATA(
+			    global_prof_mutex_prof, bt2gctx_mtx);
+			READ_GLOBAL_MUTEX_PROF_DATA(
+			    global_prof_mutex_prof_thds_data, tdatas_mtx);
+			READ_GLOBAL_MUTEX_PROF_DATA(
+			    global_prof_mutex_prof_dump, prof_dump_mtx);
 		}
 		if (have_background_thread) {
 			READ_GLOBAL_MUTEX_PROF_DATA(
@@ -1410,6 +1425,11 @@ ctl_postfork_child(tsdn_t *tsdn) {
 	malloc_mutex_postfork_child(tsdn, &ctl_mtx);
 }
 
+void
+ctl_mtx_assert_held(tsdn_t *tsdn) {
+	malloc_mutex_assert_owner(tsdn, &ctl_mtx);
+}
+
 /******************************************************************************/
 /* *_ctl() functions. */
 
@@ -1566,25 +1586,6 @@ n##_ctl(tsd_t *tsd, const size_t *mib, size_t miblen, \
 									\
 	READONLY();							\
 	oldval = (v);							\
-	READ(oldval, t);						\
-									\
-	ret = 0;							\
-label_return:								\
-	return ret;							\
-}
-
-#define CTL_TSD_RO_NL_CGEN(c, n, m, t)					\
-static int								\
-n##_ctl(tsd_t *tsd, const size_t *mib, size_t miblen, void *oldp,	\
-    size_t *oldlenp, void *newp, size_t newlen) {			\
-	int ret;							\
-	t oldval;							\
-									\
-	if (!(c)) {							\
-		return ENOENT;						\
-	}								\
-	READONLY();							\
-	oldval = (m(tsd));						\
 	READ(oldval, t);						\
 									\
 	ret = 0;							\
@@ -1796,6 +1797,8 @@ CTL_RO_NL_CGEN(config_prof, opt_lg_prof_interval, opt_lg_prof_interval, ssize_t)
 CTL_RO_NL_CGEN(config_prof, opt_prof_gdump, opt_prof_gdump, bool)
 CTL_RO_NL_CGEN(config_prof, opt_prof_final, opt_prof_final, bool)
 CTL_RO_NL_CGEN(config_prof, opt_prof_leak, opt_prof_leak, bool)
+CTL_RO_NL_GEN(opt_zero_realloc,
+    zero_realloc_mode_names[opt_zero_realloc_action], const char *)
 
 /******************************************************************************/
 
@@ -1855,14 +1858,10 @@ label_return:
 	return ret;
 }
 
-CTL_TSD_RO_NL_CGEN(config_stats, thread_allocated, tsd_thread_allocated_get,
-    uint64_t)
-CTL_TSD_RO_NL_CGEN(config_stats, thread_allocatedp, tsd_thread_allocatedp_get,
-    uint64_t *)
-CTL_TSD_RO_NL_CGEN(config_stats, thread_deallocated, tsd_thread_deallocated_get,
-    uint64_t)
-CTL_TSD_RO_NL_CGEN(config_stats, thread_deallocatedp,
-    tsd_thread_deallocatedp_get, uint64_t *)
+CTL_RO_NL_GEN(thread_allocated, tsd_thread_allocated_get(tsd), uint64_t)
+CTL_RO_NL_GEN(thread_allocatedp, tsd_thread_allocatedp_get(tsd), uint64_t *)
+CTL_RO_NL_GEN(thread_deallocated, tsd_thread_deallocated_get(tsd), uint64_t)
+CTL_RO_NL_GEN(thread_deallocatedp, tsd_thread_deallocatedp_get(tsd), uint64_t *)
 
 static int
 thread_tcache_enabled_ctl(tsd_t *tsd, const size_t *mib,
@@ -2619,7 +2618,7 @@ arenas_lookup_ctl(tsd_t *tsd, const size_t *mib,
 	if (extent == NULL)
 		goto label_return;
 
-	arena = extent_arena_get(extent);
+	arena = arena_get_from_extent(extent);
 	if (arena == NULL)
 		goto label_return;
 
@@ -2669,7 +2668,8 @@ prof_active_ctl(tsd_t *tsd, const size_t *mib, size_t miblen,
 	bool oldval;
 
 	if (!config_prof) {
-		return ENOENT;
+		ret = ENOENT;
+		goto label_return;
 	}
 
 	if (newp != NULL) {
@@ -2677,7 +2677,12 @@ prof_active_ctl(tsd_t *tsd, const size_t *mib, size_t miblen,
 			ret = EINVAL;
 			goto label_return;
 		}
-		oldval = prof_active_set(tsd_tsdn(tsd), *(bool *)newp);
+		bool val = *(bool *)newp;
+		if (!opt_prof && val) {
+			ret = ENOENT;
+			goto label_return;
+		}
+		oldval = prof_active_set(tsd_tsdn(tsd), val);
 	} else {
 		oldval = prof_active_get(tsd_tsdn(tsd));
 	}
@@ -2734,6 +2739,26 @@ prof_gdump_ctl(tsd_t *tsd, const size_t *mib, size_t miblen,
 
 	ret = 0;
 label_return:
+	return ret;
+}
+
+static int
+prof_dump_prefix_ctl(tsd_t *tsd, const size_t *mib, size_t miblen,
+    void *oldp, size_t *oldlenp, void *newp, size_t newlen) {
+	int ret;
+	const char *prefix = NULL;
+
+	if (!config_prof) {
+		return ENOENT;
+	}
+
+	malloc_mutex_lock(tsd_tsdn(tsd), &ctl_mtx);
+	WRITEONLY();
+	WRITE(prefix, const char *);
+
+	ret = prof_dump_prefix_set(tsd_tsdn(tsd), prefix) ? EFAULT : 0;
+label_return:
+	malloc_mutex_unlock(tsd_tsdn(tsd), &ctl_mtx);
 	return ret;
 }
 
@@ -2817,6 +2842,9 @@ CTL_RO_CGEN(config_stats, stats_background_thread_num_runs,
     ctl_stats->background_thread.num_runs, uint64_t)
 CTL_RO_CGEN(config_stats, stats_background_thread_run_interval,
     nstime_ns(&ctl_stats->background_thread.run_interval), uint64_t)
+
+CTL_RO_CGEN(config_stats, stats_zero_reallocs,
+    atomic_load_zu(&zero_realloc_count, ATOMIC_RELAXED), size_t)
 
 CTL_RO_GEN(stats_arenas_i_dss, arenas_i(mib[2])->dss, const char *)
 CTL_RO_GEN(stats_arenas_i_dirty_decay_ms, arenas_i(mib[2])->dirty_decay_ms,
@@ -2972,6 +3000,8 @@ stats_mutexes_reset_ctl(tsd_t *tsd, const size_t *mib,
 	}
 	if (config_prof && opt_prof) {
 		MUTEX_PROF_RESET(bt2gctx_mtx);
+		MUTEX_PROF_RESET(tdatas_mtx);
+		MUTEX_PROF_RESET(prof_dump_mtx);
 	}
 
 
@@ -2985,9 +3015,9 @@ stats_mutexes_reset_ctl(tsd_t *tsd, const size_t *mib,
 		}
 		MUTEX_PROF_RESET(arena->large_mtx);
 		MUTEX_PROF_RESET(arena->extent_avail_mtx);
-		MUTEX_PROF_RESET(arena->extents_dirty.mtx);
-		MUTEX_PROF_RESET(arena->extents_muzzy.mtx);
-		MUTEX_PROF_RESET(arena->extents_retained.mtx);
+		MUTEX_PROF_RESET(arena->eset_dirty.mtx);
+		MUTEX_PROF_RESET(arena->eset_muzzy.mtx);
+		MUTEX_PROF_RESET(arena->eset_retained.mtx);
 		MUTEX_PROF_RESET(arena->decay_dirty.mtx);
 		MUTEX_PROF_RESET(arena->decay_muzzy.mtx);
 		MUTEX_PROF_RESET(arena->tcache_ql_mtx);
@@ -3178,7 +3208,8 @@ label_return:
  * otherwise their values are undefined.
  *
  * This API is mainly intended for small class allocations, where extents are
- * used as slab.
+ * used as slab.  Note that if the bin the extent belongs to is completely
+ * full, "(a)" will be NULL.
  *
  * In case of large class allocations, "(a)" will be NULL, and "(e)" and "(f)"
  * will be zero (if stats are enabled; otherwise undefined).  The other three

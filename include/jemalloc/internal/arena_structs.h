@@ -5,6 +5,7 @@
 #include "jemalloc/internal/atomic.h"
 #include "jemalloc/internal/bin.h"
 #include "jemalloc/internal/bitmap.h"
+#include "jemalloc/internal/eset.h"
 #include "jemalloc/internal/extent_dss.h"
 #include "jemalloc/internal/jemalloc_internal_types.h"
 #include "jemalloc/internal/mutex.h"
@@ -51,8 +52,8 @@ struct arena_decay_s {
 	/*
 	 * Number of unpurged pages at beginning of current epoch.  During epoch
 	 * advancement we use the delta between arena->decay_*.nunpurged and
-	 * extents_npages_get(&arena->extents_*) to determine how many dirty
-	 * pages, if any, were generated.
+	 * eset_npages_get(&arena->extents_*) to determine how many dirty pages,
+	 * if any, were generated.
 	 */
 	size_t			nunpurged;
 	/*
@@ -118,14 +119,6 @@ struct arena_s {
 	prof_accum_t		prof_accum;
 
 	/*
-	 * PRNG state for cache index randomization of large allocation base
-	 * pointers.
-	 *
-	 * Synchronization: atomic.
-	 */
-	atomic_zu_t		offset_state;
-
-	/*
 	 * Extent serial number generator state.
 	 *
 	 * Synchronization: atomic.
@@ -161,9 +154,9 @@ struct arena_s {
 	 *
 	 * Synchronization: internal.
 	 */
-	extents_t		extents_dirty;
-	extents_t		extents_muzzy;
-	extents_t		extents_retained;
+	eset_t		eset_dirty;
+	eset_t		eset_muzzy;
+	eset_t		eset_retained;
 
 	/*
 	 * Decay-based purging state, responsible for scheduling extent state
